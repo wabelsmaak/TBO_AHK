@@ -120,7 +120,7 @@ OriginTicket()
 {
 Gui, Destroy
 Gui, Font, s12
-Gui, Add, Text,, TBO TEMPLATES (v24.1)
+Gui, Add, Text,, TBO TEMPLATES (v24.5)
 Gui, Add, Text,, 
 Gui, Add, Button, gSCTemplateJust, SERVICE CASE LOG
 Gui, Add, Button, gSms, SMS
@@ -368,11 +368,11 @@ Gui, Add, Checkbox, vForceCompleteAflog, FORCE COMPLETED FUSION TASKS?
 Gui, Add, Button, gClickHere, CLICK HERE AFTER CHECKING THE BOX ABOVE
 Gui, Add, Text,,
 Gui, add, Text,, TECHNICAL ISSUE
-Gui, Add, Edit, r5 w380 vTissue
+Gui, Add, Edit, r5 w380 vTissue, 
 Gui, add, Text,, ACTION(S) TAKEN
-Gui, Add, Edit, r5 w380 vStaken 
+Gui, Add, Edit, r5 w380 vStaken,
 Gui, add, Text,, MOTIVATE FORCE COMPLETING THE FUSION TASKS:
-Gui, Add, Edit, r5 w180 vFCname Disabled
+Gui, Add, Edit, r5 w180 vFCname,
 Gui, add, Text,, CONTACT DETAILS
 Gui, Add, Edit, r5 w380 vContact,
 Gui, Add, Button, gCopyCaseTemplateJust, COPY
@@ -580,9 +580,11 @@ Gui, Destroy
 Gui, Add, Checkbox, vCoos, COOS?
 Gui, Add, Checkbox, vSheet, SHEET?
 Gui, Add, Checkbox, vForceComplete, USED FORCE COMPLETE?
-Gui, Add, Button, gCheck, CLICK HERE AFTER FORCE COMPLETE CHECKBOX
+Gui, Add, Button, gCheck, CLICK THIS AFTER FORCE COMPLETE CHECKBOX
 Gui, Add, Text,, SERVICE
 Gui, Add, DropDownList, vServiceBB, ALL||INTERNET|FIXED LINE|DTV
+Gui, Add, Text,, CATEGORY
+Gui, Add, DropDownList, vCatServicesBB, PID||Webmail|Order Entery|Inflight Order|Change Ownership|Move|Activation|Fixed IP|Modem Swap|STB Swap|Fixed Tel|PEGA Unable To Close SC
 Gui, Add, Text,, ISSUE (Short))
 Gui, Add, Edit, vProblemshort
 Gui, Add, Text,, CUSTOMERNR
@@ -590,15 +592,15 @@ Gui, Add, Edit, vKlantennummer
 Gui, Add, Text,, BSS LINK CMR
 Gui, Add, Edit, vLinkBSS
 Gui, Add, Text,, PEGA SC-ID WITH ERROR (FC Ticket)
-Gui, Add, Edit, vScid Disabled
+Gui, Add, Edit, vScid
 Gui, Add, Text,, PEGA SC STATUS (FC Ticket)
-Gui, Add, Edit, vPEGAStatus Disabled
+Gui, Add, Edit, vPEGAStatus
 Gui, Add, Text,, ERROR XXDO_SEVERETECHPROBLEM (FC Ticket)
-Gui, Add, Edit, vSEVER Disabled
+Gui, Add, Edit, vSEVER
 Gui, Add, Text,, NC STATUS BEFORE WA (FC Ticket)
-Gui, Add, Edit, vNCStatus Disabled
+Gui, Add, Edit, vNCStatus
 Gui, Add, Text,, FUSION DELIVERY STATUS (FC Ticket)
-Gui, Add, Edit, vFusionStatus Disabled
+Gui, Add, Edit, vFusionStatus
 Gui, Add, Text,, LINK TASK
 Gui, Add, Edit, vTasklink
 Gui, Add, Text,, PEGA SC-ID
@@ -620,11 +622,9 @@ CopyTicketBB()
 global
 Gui, Submit, Nohide
 
-
-
 if (Coos = 1)
 { 
-Coos := "/COOS"
+Coos := " / COOS"
 }
 else
 {
@@ -633,11 +633,11 @@ Coos := ""
 
 if (Sheet = 1)
 {
-	if (Coos = "/COOS"){
-	Sheet := " sheet"
+	if (Coos = " / COOS"){
+	Sheet := " / Sheet"
 	}
 	else{
-	Sheet := "/sheet"
+	Sheet := " / Sheet"
 	}
 }
 else
@@ -649,13 +649,13 @@ if (ForceComplete = 1)
 {
     Stringmob = 
     (
-        Origin %ServiceBB% / %Klantennummer% / %Scid% / FC
+        Origin / %ServiceBB% / %Klantennummer% / %Scid% / Force Complete
 
         - Regarding customer: %Klantennummer%
 
-        - PEGA ServiceCase met de error: %Scid%
+        - PEGA Service Case in error: %Scid%
 
-	- Error: %SEVER%
+		- Error: %SEVER%
 
         - PEGA Servicecase status: %PEGAStatus%
 
@@ -683,13 +683,13 @@ else
 {
     Stringmob = 
     (
-        Origin%Coos%%Sheet% / %ServiceBB%/ Non-Billing / %Klantennummer% / %Scid2% / %Problemshort%
+        Origin%Coos% %Sheet% / %ServiceBB% / Non-Billing / %Klantennummer% / %Scid2% / %CatServicesBB% / %Problemshort%
 
         - Regarding customer: %Klantennummer%
-        - customerlink BSS: %LinkBss%
+        - Customer BSS Link: %LinkBss%
         - Problem: %Problemshort%
-        - link of the task: %Tasklink%
-        - error: %Error%
+        - Link of the task: %Tasklink%
+        - Error: %Error%
         - Description or Steps:
         %Extdescr%
         
@@ -17354,7 +17354,8 @@ Gui, add, Text,, HOTKEY INFO
 Gui, add, Text,, -------------------
 Gui, add, Text,, 
 Gui, add, Text,, Any issue's, questions or feedback related to this hotkey?
-Gui, add, Text,, Contact: nick.debeck@telenetgroup.be
+Gui, add, Text,, Contact TBO Mob: nick.debeck@telenetgroup.be
+Gui, add, Text,, Contact TBO Broadband: abdul.zein.eddin@telenetgroup.be
 Gui, add, Text,, 
 Gui, add, Text,, -------------------
 Gui, add, Text,, Mobile templates: Nick Debeck
