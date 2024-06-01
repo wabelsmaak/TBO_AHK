@@ -1,4 +1,4 @@
-#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases 4.
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases 5.
 #SingleInstance force	
 #NoTrayIcon	
 ; #Warn  ; Enable warnings to assist with detecting common errors.
@@ -580,7 +580,7 @@ Gui, Destroy
 Gui, Add, Checkbox, vCoos, COOS?
 Gui, Add, Checkbox, vSheet, SHEET?
 Gui, Add, Checkbox, vForceComplete, USED FORCE COMPLETE?
-Gui, Add, Button, x170 y42 gCheck, CLICK HERE AFTER CHECKING THE BOX
+Gui, Add, Button, x170 y41 gCheck, CLICK HERE AFTER CHECKING THE BOX
 Gui, Add, Text,x50 , BRAND
 Gui, Add, DropDownList, vTelbaseBB, TELENET||OKL LAUNCH
 Gui, Add, Text,, SERVICE
@@ -2193,7 +2193,7 @@ global
 Gui, Submit, NoHide
 StringPIDInvite = 
 (
-Telenet-info: Nous avons envoye a votre adresse e-mail %EMAILINV% une nouvelle invitation à completer votre login. Cela ne fonctionne toujours pas? Veuillez nous informer via le service clientèle à l'adresse 015666666 de l'étape, du message d'erreur et de toute autre information pertinente.
+Telenet-info: Nous avons envoye a votre adresse e-mail %EMAILINV% une nouvelle invitation à completer votre login. Cela ne fonctionne toujours pas? Veuillez nous informer via le service clientele à l'adresse 015666666 de l'etape, du message d'erreur et de toute autre information pertinente.
 )
 clipboard := StringPIDInvite
 return
