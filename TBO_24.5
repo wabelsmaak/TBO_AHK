@@ -1,4 +1,4 @@
-#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases2.
 #SingleInstance force	
 #NoTrayIcon	
 ; #Warn  ; Enable warnings to assist with detecting common errors.
@@ -580,7 +580,7 @@ Gui, Destroy
 Gui, Add, Checkbox, vCoos, COOS?
 Gui, Add, Checkbox, vSheet, SHEET?
 Gui, Add, Checkbox, vForceComplete, USED FORCE COMPLETE?
-Gui, Add, Button, gCheck, CLICK THIS AFTER FORCE COMPLETE CHECKBOX
+Gui, Add, Button, x170 y42 gCheck, CLICK THIS AFTER FORCE COMPLETE CHECKBOX
 Gui, Add, Text,x50 , BRAND
 Gui, Add, DropDownList, vTelbaseBB, TELENET||OKL LAUNCH
 Gui, Add, Text,, SERVICE
@@ -610,12 +610,12 @@ Gui, Add, Edit, vScid2
 Gui, Add, Text,, ERROR
 Gui, Add, Edit, vError
 Gui, Add, Text,, DESCRIPTION & ACTIONS PERFORMED
-Gui, Add, Edit, r5 w380 vExtdescr,
+Gui, Add, Edit, r7 w380 vExtdescr,
 Gui, Add, Button, gCopyTicketBB, COPY
 Gui, Add, Button, gClear, CLEAR
 Gui, Add, Text,, 
-Gui, Add, Button, gTicketMenu, BACK
-Gui, Add, Button, gOriginTicket, HOME
+Gui, Add, Button, x50 y905 gTicketMenu, BACK
+Gui, Add, Button, x150 y905 gOriginTicket, HOME
 Gui, Show
 }
 
@@ -720,6 +720,7 @@ GuiControl, Disable, Scid
 	GuiControl, Disable, Tasklink
 	GuiControl, Disable, Problemshort
 	GuiControl, Disable, Extdescr
+	GuiControl, Disable, CatServicesBB
 
 	GuiControl, Enable, Scid
     GuiControl, Enable, SEVER
